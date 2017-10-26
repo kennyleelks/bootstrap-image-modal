@@ -2,6 +2,9 @@
 
     function modalInit(modal, options) {
 
+        if (modal === undefined) return false;
+        options === undefined ? {} : options;
+
         modal.off('show.bs.modal shown.bs.modal hide.bs.modal hidden.bs.modal loaded.bs.modal');
 
         options.hasOwnProperty('onShow') && modal.on('show.bs.modal', function(e) {
@@ -15,9 +18,6 @@
         });
         options.hasOwnProperty('onHidden') && modal.on('hidden.bs.modal', function(e) {
             options.onHidden();
-        });
-        options.hasOwnProperty('onLoaded') && modal.on('loaded.bs.modal', function(e) {
-            options.onLoaded();
         });
 
         var modalDialog = $('.image-magnify-modal .modal-dialog');
@@ -90,19 +90,18 @@
 
         $('.image-magnify-modal').length == 0 && modal.appendTo('body');
 
-        this.data('options', o === undefined ? {} : o);
-
+        this.options = o === undefined ? {} : o;
         this.wrap($('<div></div>').addClass('image-magnify-container'));
         this.click(function() {
-
-            var options = $(this).data('options');
-
-            modal = modalInit($('.image-magnify-modal'), options);
-            modal.find('.modal-header .modal-title').html($(this).attr('title'));
-            modal.find('.modal-body').html($('<img>').attr('src', $(this).attr('src')));
-            modal.modal('show');
-
+            var img = $(this);
+            var options = img.data('imageModal').options;
+            if (modal = modalInit($('.image-magnify-modal'), options)) {
+                modal.find('.modal-header .modal-title').html(img.attr('title'));
+                modal.find('.modal-body').html($('<img>').attr('src', img.attr('src')));
+                modal.modal('show');
+            }
         });
+        this.data('imageModal', this);
 
     };
 })(jQuery);
