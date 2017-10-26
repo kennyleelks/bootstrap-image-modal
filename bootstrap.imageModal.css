@@ -1,0 +1,23 @@
+.image-magnify-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.image-magnify-container:hover::after {
+    position: absolute;
+    display: block;
+    right: 0;
+    bottom: 0;
+    padding: .7rem 1rem;
+    font-family: 'FontAwesome';
+    font-size: 2rem;
+    content: '\f00e';
+    color: #fff;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.image-magnify-modal .modal-body img {
+    width: 100%;
+    height: auto;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Image Modal Demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap.imageModal.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">Bootstrap Image Modal Demo</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Events</h2>
+<pre>
+$("#demo1").imageModal({
+    onShown: function() {
+        console.log("modal is shown!");
+    },
+    onHidden: function() {
+        console.log("modal is hidden!");
+    }
+});
+</pre>
+                <div style="width: 300px;">
+                    <img id="demo1" class="img-responsive" src="https://picsum.photos/640/480" title="Demo1" alt="">
+                </div>
+                <hr>
+                <h2>Remove animation</h2>
+<pre>
+$("#demo2").imageModal({
+    animate: false
+});
+</pre>
+                <div style="width: 300px;">
+                    <img id="demo2" class="img-responsive" src="https://picsum.photos/1280/960" title="Demo2" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Optional sizes</h2>
+<pre>
+$("#demo3").imageModal({
+    modalSize: "lg"
+});
+</pre>
+                <div style="width: 300px;">
+                    <img id="demo3" class="img-responsive" src="https://picsum.photos/1280/1024" title="Demo3" alt="">
+                </div>
+                <hr>
+<pre>
+$("#demo4").imageModal({
+    modalSize: "sm"
+});
+</pre>
+                <div style="width: 300px;">
+                    <img id="demo4" class="img-responsive" src="https://picsum.photos/1024/768" title="Demo4" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="bootstrap.imageModal.js"></script>
+    <script>
+        $(function() {
+            $("#demo1").imageModal({
+                onShown: function() {
+                    console.log("modal is shown!");
+                },
+                onHidden: function() {
+                    console.log("modal is hidden!");
+                }
+            });
+            $("#demo3").imageModal({
+                modalSize: "lg"
+            });
+            $("#demo4").imageModal({
+                modalSize: "sm"
+            });
+            $("#demo2").imageModal({
+                animate: false
+            });
+        });
+    </script>   
+</body>
+</html>
