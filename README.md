@@ -1,3 +1,2 @@
 # Bootstrap Image Modal Demo
-
-https://kennyleelks.github.io/imageModal/
+[Live Demo](https://kennyleelks.github.io/jquery-image-modal/)
